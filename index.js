@@ -17,7 +17,7 @@ const axios = require("axios")
 const { color, bgcolor, logs } = require('./lib/color');
 const bemvindotexto = JSON.parse(fs.readFileSync('./lib/TextoDoBemvindo.json'));
 // CONFIGURAÇÃO DONO E ETC
-const clovermods = require('./main.js')
+//const clovermods = require('./main.js')
 const settings = JSON.parse(fs.readFileSync('./confing.json'));
 const nomeBot = settings.nomeBot
 const NomeDoBot = nomeBot
