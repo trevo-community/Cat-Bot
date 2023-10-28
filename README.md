@@ -19,18 +19,13 @@ termux-setup-storage && pkg upgrade -y && pkg update -y && pkg install nodejs -y
 2. COMANDO:
 
 ```
-cd /sdcard && git clone http://github.com/CloverMods/CloverV6.git && cd CloverV6
+cd /sdcard && git clone https://github.com/trevo-community/Cat-Bot && cd Cat-Bot
 ```
 
 3. LINK DA node_modules:
-
-• Extraia o arquivo zip do node_modules 
-
-4. COMANDO:
 
 ```
 sh start.sh
 ```
 
-• Depois só escanear o QrCode pelo whtasapp web do Whatsapp que vai ser utilizado pro Bot.
-# Clover V6
+• Depois só colocar seu numero 
