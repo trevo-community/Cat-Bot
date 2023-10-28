@@ -46,7 +46,7 @@ async function clover_mods() {
     const question = (text) => new Promise((resolve) => rl.question(text, resolve));
     // BANER DO TERMINAL
     const cfonts = require('cfonts')
-    const banner = cfonts.render(('Clover|V6'),
+    const banner = cfonts.render(('Cat|bot'),
         {
             font: "block",
             align: "center",
@@ -85,14 +85,12 @@ async function clover_mods() {
     console.log(banner.string)
     console.log('[ Clover 6.0 online ]')
 
-
     if (!client.authState.creds.registered) {
-        const phoneNumber = await question(`\nDigite seu número do WhatsApp:\nEx: ${clc.bold("75998989898")}\n `);
+        const phoneNumber = await question(`\nDigite seu número do WhatsApp:\nEx: ${clc.bold("557598659559")}\n `);
         const code = await client.requestPairingCode(phoneNumber);
-        console.log(`Seu código de conexão é: \n\n ${clc.bold(code)}\n`);
+        console.log(`Seu código de conexão é: \n\n ${clc.bold(code)}\n~>`);
         console.log(`Abra seu WhatsApp, vá em ${clc.bold("Aparelhos Conectados > Conectar um novo Aparelho > Conectar usando Número.")}`)
     }
-
 
     store.bind(client.ev)
 
@@ -122,30 +120,6 @@ async function clover_mods() {
     const welkom = JSON.parse(fs.readFileSync('./lib/welkom.json'));
     const bemvindotexto = JSON.parse(fs.readFileSync('./lib/TextoDoBemvindo.json'));
     const trevo = bemvindotexto.texto
-
-    /*
-     // GRUPO ATUALIZAÇÃO  
-        client.ev.on('groups.update', async grup => {
-            console.log(grup)
-            try {
-                ppgc = await client.profilePictureUrl(grup[0].id, 'image')
-            } catch {
-                ppgc = 'https://telegra.ph/file/3983c55ac7f3ebea225d3.jpg'
-            }
-            let wm_fatih = { url: ppgc }
-            if (grup[0].announce == true) {
-                client.sendMessage(grup[0].id, { text: `「 Alterações nas configurações do grupo 」\n\nO grupo foi fechado pelo administrador, agora só os administradores podem enviar mensagens !\n${NomeDoBot}` })
-            } else if (grup[0].announce == false) {
-                client.sendMessage(grup[0].id, { text: `「 Alterações nas configurações do grupo 」\n\nO grupo foi aberto pelo administrador, agora os participantes podem enviar mensagens !\n${NomeDoBot}` })
-            } else if (grup[0].restrict == true) {
-                client.sendMessage(grup[0].id, { text: `「 Alterações nas configurações do grupo 」\n\nAs informações do grupo foram restritas, agora apenas administradores podem editar informações do grupo !\n${NomeDoBot}` })
-            } else if (grup[0].restrict == false) {
-                client.sendMessage(grup[0].id, { text: `「 Alterações nas configurações do grupo 」\n\nInformações do grupo foram abertas, agora os participantes podem editar informações do grupo !\n${NomeDoBot}` })
-            } else {
-                client.sendMessage(grup[0].id, { text: `「 Alterações nas configurações do grupo 」\n\nO nome do Grupo foi alterado para *${grup[0].subject}*\n${NomeDoBot}` })
-            }
-        })
-     */
     // PARTICIPANTES DE GRUPO ATUALIZAÇÃO 
     client.ev.on('group-participants.update', async (anu) => {
         //console.log(anu)

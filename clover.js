@@ -210,11 +210,110 @@ module.exports = client = async (client, info, settings, color) => {
     switch (comando) {
       // COMANDOS COM PREFIXO COMEÇAM A PARTIR DAQUI!!! \\
 
+      case "comandos":
+      case "help":
+      case "start":
       case 'menu': {
         client.sendMessage(from, {
           image: fs.readFileSync('./clover2.jpg'), caption: `
-menu online!!!
-`})
+╭━━━━━━━━━━━━━━━━━━━━━━━━━╮
+┃~> MENU ADM
+┃━━━━━━━━━━━━━━━━━━━━━━━━━╯
+┃ ${prefix}ban
+┃ ${prefix}reviver
+┃ ${prefix}bemvindo 1/0
+┃ ${prefix}marcar
+┃ ${prefix}hidetag
+┃ ${prefix}tagall
+┃ ${prefix}grupo a 
+┃ ${prefix}grupo f
+┃ ${prefix}nomegp
+┃ ${prefix}descgp
+┃ ${prefix}fotogp
+┃ ${prefix}resetarlink
+┃ ${prefix}gplink
+┃ ${prefix}promover
+┃ ${prefix}rebaixar
+┃ ${prefix}antilink 1/0
+┃ ${prefix}
+┃ ${prefix}
+╰━━━━━━━━━━━━━━━━━━━━━━━━━╯
+╭━━━━━━━━━━━━━━━━━━━━━━━━━╮
+┃~> MENU BRINCADEIRA
+┃━━━━━━━━━━━━━━━━━━━━━━━━━╯
+┃ ${prefix}feio
+┃ ${prefix}gay
+┃ ${prefix}gostoso
+┃ ${prefix}lindo
+┃ ${prefix}punheteiro
+┃ ${prefix}cassino
+┃ ${prefix}ppt
+╭━━━━━━━━━━━━━━━━━━━━━━━━━╮
+┃~> MENU ANIME
+┃━━━━━━━━━━━━━━━━━━━━━━━━━╯
+┃ ${prefix}eps-recentes
+┃━━━━━━━━━━━━━━━━━━━━━━━━
+┃ ${prefix}cosplay
+┃ ${prefix}waifu
+┃ ${prefix}waifu2
+┃ ${prefix}shota
+┃ ${prefix}loli
+┃ ${prefix}yotsuba
+┃ ${prefix}shinomiya
+┃ ${prefix}yumeko
+┃ ${prefix}tejina
+┃ ${prefix}chiho
+┃ ${prefix}shizuka
+┃ ${prefix}boruto
+┃ ${prefix}kagori
+┃ ${prefix}kaga
+┃ ${prefix}kotori
+┃ ${prefix}mikasa
+┃ ${prefix}akiyama
+┃ ${prefix}hinata
+┃ ${prefix}minato
+┃ ${prefix}naruto
+┃ ${prefix}nezuko
+┃ ${prefix}yuki
+┃ ${prefix}hestia
+┃ ${prefix}emilia
+┃ ${prefix}itachi
+┃ ${prefix}elaina
+┃ ${prefix}madara
+┃ ${prefix}sasuke
+┃ ${prefix}deidara
+┃ ${prefix}sakura
+┃ ${prefix}tsunade
+┃━ HENTAI
+┃ ${prefix}ahegao
+┃ ${prefix}ass
+┃ ${prefix}bdsm
+┃ ${prefix}blowjob
+┃ ${prefix}cuckold
+┃ ${prefix}cum
+┃ ${prefix}ero
+┃ ${prefix}kasedaiki
+┃ ${prefix}femdom
+┃ ${prefix}foot
+┃ ${prefix}gangbang
+┃ ${prefix}glasses
+┃ ${prefix}hentai2
+┃ ${prefix}jahy
+┃ ${prefix}manga
+┃ ${prefix}masturbation
+┃ ${prefix}neko
+┃ ${prefix}orgy
+┃ ${prefix}panties
+┃ ${prefix}pussy
+┃ ${prefix}neko2
+┃ ${prefix}neko
+┃ ${prefix}tentacles
+┃ ${prefix}thighs
+┃ ${prefix}yuri
+┃ ${prefix}zettai
+╰━━━━━━━━━━━━━━━━━━━━━━━━━╯
+os comandos nao estao todos listados aqui entao vc nao pode achar alguns nesse menu...
+          `})
       } break
 
 
@@ -224,7 +323,7 @@ menu online!!!
         const pedido = args.join('');
         reply("enviando...")
         anikit.playMP4(`${q}`, username, key).then((response) => {
-          console.log(response);
+          //console.log(response);
           client.sendMessage(from, {
             image: { url: `${response.thumb}` }, caption: `
           Titulo: ${response.title}
@@ -242,7 +341,7 @@ menu online!!!
         const pedido = args.join('');
         reply("enviando...")
         anikit.playMP3(`${q}`, username, key).then((response) => {
-          console.log(response);
+          //console.log(response);
           client.sendMessage(from, {
             image: { url: `${response.thumb}` }, caption: `
           Titulo: ${response.title}
@@ -684,7 +783,7 @@ menu online!!!
         let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
         let anu = groups.map(v => v.id)
         for (let i of anu) {
-          await sleep(150)
+          await delay(150)
           let txt = `「 TRANSMISSÃO DO BOT 」\n\n ${q}`
           client.sendMessage(i, { text: txt })
         }
