@@ -232,7 +232,7 @@ menu online!!!
           Views: ${response.views}
           `});
 
-          client.sendMessage(from, { video: { url:`${response.url}` } });
+          client.sendMessage(from, { video: { url: `${response.url}` } });
         })
       } break
 
@@ -250,7 +250,7 @@ menu online!!!
           Views: ${response.views}
           `});
 
-          client.sendMessage(from, { audio: { url:`${response.url}` }, mimetype: 'audio/mpeg' });
+          client.sendMessage(from, { audio: { url: `${response.url}` }, mimetype: 'audio/mpeg' });
         })
       } break
 
@@ -1034,20 +1034,16 @@ menu online!!!
       case "tsunade":
         try {
           client.sendMessage(from, { react: { text: '🕚', key: info.key } })
-          fetch(encodeURI(`https://dark-lime-snapper-hat.cyclic.app/nime/${command}?username=SUPREMO&key=Adm`))
-            .then(response => response.json())
-            .then(data => {
-              var resultado = data.url;
-
-              let buttonMessage4 = {
-                image: { url: `${resultado}` },
-                caption: `🏕 Olá ${pushname}, aqui está sua imagem 🎲`,
-                footer: '',
-                //buttons: buttons,
-                headerType: 4
-              }
-              client.sendMessage(from, buttonMessage4, { quoted: info })
-            })
+          anikit.getAnimeInfo(`${command}`, username, key).then((response) => {
+            let buttonMessage4 = {
+              image: { url: `${response.url}` },
+              caption: `🏕 Olá ${pushname}, aqui está sua imagem 🎲`,
+              footer: '',
+              //buttons: buttons,
+              headerType: 4
+            }
+            client.sendMessage(from, buttonMessage4, { quoted: info })
+          })
         } catch (e) {
           console.log(e)
           reply("nao achei a foto, tente novamente mais tarde")
@@ -1082,27 +1078,38 @@ menu online!!!
       case 'zettai':
         try {
           client.sendMessage(from, { react: { text: '🕚', key: info.key } })
-          fetch(encodeURI(`https://dark-lime-snapper-hat.cyclic.app/nsfw/${command}?username=SUPREMO&key=Adm`))
-            .then(response => response.json())
-            .then(data => {
-              var resultado = data.url;
-
-              let buttonMessage4 = {
-                image: { url: `${resultado}` },
-                caption: `🏕 Olá ${pushname}, aqui está sua imagem 🎲`,
-                footer: '',
-                //buttons: buttons,
-                headerType: 4
-              }
-              client.sendMessage(sender, buttonMessage4, { quoted: info })
-            })
+          anikit.getNSFWInfo(`${command}`, username, key).then((response) => {
+            let buttonMessage4 = {
+              image: { url: `${response.url}` },
+              caption: `🏕 Olá ${pushname}, aqui está sua imagem 🎲`,
+              footer: '',
+              //buttons: buttons,
+              headerType: 4
+            }
+            client.sendMessage(sender, buttonMessage4, { quoted: info })
+          })
         } catch (e) {
           console.log(e)
           reply("nao achei a foto, tente novamente mais tarde")
         }
         break
 
-
+        case "eps-recentes": {
+          anikit.getRecentEpisodes(username, key).then((response) => {
+            let resultInstance = ""; // Inicialize resultInstance como uma string vazia
+        
+            for (let i = 0; i < response.length; i++) {
+              // Concatene os resultados de cada episódio a resultInstance
+              resultInstance += `-------------------------------------
+                Anime: ${response[i].title}
+                Ep: ${response[i].episodeNum}
+              `;
+            }
+        
+            reply("ANIMES LANÇAMENTOS\n\n" + resultInstance + "\n\n-------------------------------------");
+          });
+        } break;
+        
 
 
 
