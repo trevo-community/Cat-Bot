@@ -26,9 +26,9 @@ cd /sdcard && git clone https://github.com/trevo-community/Cat-Bot && cd Cat-Bot
 
 ```
 sh start.sh
-
+```
 ou
-
+```
 node index.js
 ```
 
