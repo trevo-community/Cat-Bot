@@ -22,7 +22,7 @@ termux-setup-storage && pkg upgrade -y && pkg update -y && pkg install nodejs -y
 cd /sdcard && git clone https://github.com/trevo-community/Cat-Bot && cd Cat-Bot && yarn install
 ```
 
-3. LINK DA node_modules:
+3. COMANDO:
 
 ```
 sh start.sh
