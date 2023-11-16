@@ -153,7 +153,7 @@ async function clover_mods() {
     client.ev.on('messages.upsert', connection => {
         //console.log(connection)
         const info = connection.messages[0];
-        if (info.key.fromMe) return;
+        //if (info.key.fromMe) return;
         if (connection.type != 'notify') return;
         if (info.key.remoteJid === 'status@broadcast') return;
         require('./clover.js')(client, info, settings, color)
